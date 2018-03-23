@@ -1,0 +1,115 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+div,
+h1,
+h2 {
+	font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Arial, sans-serif;
+	color: #333;
+	border-radius: 5px;
+}
+
+body {
+	background-image: url(../img/login_bg.jpg);
+	backgroudn-repeat: no-repeat;
+	background-position: center center;
+	background-size: auto 200%;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+}
+
+.h2 .login-head {
+	position: relative;
+	bottom: -100px;
+	width: 200px;
+	height: 200px;
+	background: url(../img/loginhead.png) round;
+	/*border: 1px solid blue;*/
+}
+
+.h2 span {
+	/*position: absolute;*/
+	/* top: 10px; */
+	/* line-height: 43px; */
+	padding: 5px 10px;
+	margin-left: 10px;
+	border: 1px solid red;
+}
+
+#myLoginInfo {
+	padding: 20px 30px;
+	background: url("../img/login_top-light.png") center top no-repeat rgba(29, 34, 44, 0.95);
+}
+
+#myLoginInfo:hover,
+#myLoginInfo:focus {
+	/*border: 1px solid #66AFE9;
+	border-top: solid #3887D2;*/
+	-moz-box-shadow: 0px 0px 20px #000;
+	-webkit-box-shadow: 0px 0px 20px #000;
+	box-shadow: 0px 0px 20px #000;
+}
+
+#myLoginInfo form {
+	position: relative;
+	animation-duration: 416ms;
+	/*top: -20px;*/
+}
+
+#myLoginInfo form #fisrt-form {
+	margin-top: 60px;
+}
+
+#myLoginInfo form .input-group {
+	margin-bottom: 20px;
+}
+
+#myLoginInfo form .form-group .code {
+	width: 120px;
+	margin-right: 10px;
+	border-radius:0 4px 4px 0;
+}
+
+#myLoginInfo form .form-group .captchaImage {
+	display: none;
+    background-color: #E3E3E3;
+    width: 120px;
+    height: 34px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+#myLoginInfo form .checkbox label {
+	padding-left: 25px;
+	color: #eee;
+}
+
+#myLoginInfo form .checkbox a {
+	position: absolute;
+	right: 10px;
+}
+
+#myLoginInfo form .checkbox a:hover {
+	color: #66AFE9;
+}
+
+#myLoginInfo form div.form-group:last-child button {
+	margin-left: 18%;
+	padding: 10px 30px;
+}
+
+#spanMsg {
+	position: fixed;
+	right: 50px;
+	top: 50px;
+	padding: 10px;
+	width: 150px;
+	height: 50px;
+	/*border: 1px solid red;*/
+}

@@ -1,0 +1,65 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, div, h1, h2 {
+    font-family: 'Microsoft YaHei', 'Hiragino Sans GB', Arial, sans-serif;
+    color: #333;
+    border-radius: 5px;
+}
+
+body {
+    background-image: url(../img/bg.jpg);
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+#myRegInfo form {
+    position: relative;
+    background: rgba(51, 122, 183, 0.7);
+    margin-top: 20%;
+    padding: 30px 40px;
+    animation-duration: 1000ms;
+    border-radius: 5px;
+}
+
+#myRegInfo form:hover, #myRegInfo form:focus {
+    -moz-box-shadow: 0px 0px 10px #333333;
+    -webkit-box-shadow: 0px 0px 10px #333333;
+    box-shadow: 0px 0px 10px #333333;
+}
+
+#myRegInfo form .panel {
+    margin-left: 40px;
+    background: none;
+    box-shadow: none;
+}
+
+#myRegInof form div.form-group:first .panel .panel-head span.h2 {
+    background-color: #FF0000;
+}
+
+#myRegInfo form .panel .panel-head a img {
+    width: 120px;
+    height: 120px;
+}
+
+#myRegInfo form .input-group {
+    margin-bottom: 20px;
+}
+
+#myRegInfo form .input-group-addon {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right-width: 0;
+    background: rgba(217, 236, 247, 0.8);
+}
+
+#myRegInfo form input[name="submit"] {
+    padding: 10px 30px;
+    font-size: 16px;
+}

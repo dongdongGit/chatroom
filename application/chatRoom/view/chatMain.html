@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 新 Bootstrap 核心 CSS 文件 -->
+        <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="public/chatRoom/css/animate.min.css" />
+        <link rel="stylesheet" type="text/css" href="public/chatRoom/css/chatMain.css" />
+        <link rel="shortcut icon" href="public/chatRoom.ico" />
+        <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <title>骚话室</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8" id="testScroll">
+                    <div class="panel panel-default" id="sizeChat">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">骚话窗口</h3>
+                        </div>
+                        <div class="panel-body viewSize">
+                            <div class="scroll-content"></div>
+                            <div class="scroll-bar">
+                                <div class="scroll-btnUp">
+                                    <a></a>
+                                </div>
+                                <div class="scroll-slider">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </div>
+                                <div class="scroll-btnDown">
+                                    <a></a>
+                                </div>
+                            </div>
+                            <form class="form" id="chatRoomForm" name="From">
+	                            <div class="input-group">
+	                                <span class="input-group-addon">表情</span>
+	                                <div class="txt-box" name="txt" contenteditable="true"/></div>
+	                                <span class="input-group-btn">
+	                                	<input class="btn btn-default" id="sendTxt" type="button" name="btnSend" value="发送"/>
+	                                </span>
+		                        </div>
+		                        <div class="error">
+		                            <span class="label label-danger" id="warningMsg"></span>
+		                            <div class="bubbleStyle bubble-bottom center-block"></div>
+		                        </div>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-3 .col-md-push-1" id="">
+	                <div class="panel panel-default">
+	                    <div class="panel-heading">
+	                        <h3 class="panel-title"> 在线人数
+	                        	<div class="badge">number</div>
+	                        </h3>
+	                    </div>
+	                    <div class="panel-body">
+	                        <div class="media">
+	                            <div class="media-left">
+	                                <a href="#">
+	                                    <img class="media-object" src="public/chatRoom/img/head01.jpg" alt="" />
+	                                </a>
+	                            </div>
+	                            <div class="media-body">
+	                                <h4 class="media-heading">test</h4>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="public/chatRoom/js/JQuery-resize-event_v1.1.js"></script>
+        <script src="public/chatRoom/js/chatMain.js"></script>
+    </body>
+</html>
