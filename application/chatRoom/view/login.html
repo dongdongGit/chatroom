@@ -7,9 +7,9 @@
         <!-- 新 Bootstrap 核心 CSS 文件 -->
         <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css " />
-        <link rel="stylesheet" href="public/chatRoom/css/login.css" />
-        <link rel="stylesheet" href="public/chatRoom/css/animate.min.css" />
-        <link rel="shortcut icon" href="public/chatRoom.ico" />
+        <link rel="stylesheet" href="/public/chatRoom/css/login.css" />
+        <link rel="stylesheet" href="/public/chatRoom/css/animate.min.css" />
+        <link rel="shortcut icon" href="/public/chatRoom.ico" />
         <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -45,7 +45,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"> <span class="glyphicon glyphicon-barcode"></span></span>
                                     <input class="form-control code" id="captcha" name="captcha" type="text" placeholder="验证码..." />
-                                	<img class="captchaImage" alt="加载失败" src="./index.php?p=chatroom&c=Login&a=captcha">
+                                	<img class="captchaImage" alt="加载失败" src="/chatroom/Login/captcha">
 	                               	<button class="btn btn-default" id="captchaBtn" value="换一张">换一张</button>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-default" id="btnLogin" type="submit" value="登录">登录</button>
-                                <button class="btn btn-default" id="btnReg" type="button" value="注册"><a href="./index.php?p=chatroom&c=View&a=sRegister">注册</a></button>
+                                <button class="btn btn-default" id="btnReg" type="button" value="注册"><a href="/chatroom/View/sRegister">注册</a></button>
                             </div>
                         </form>
                     </div>
@@ -70,8 +70,8 @@
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="http://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
-        <script src="public/chatRoom/js/jQuery-md5.js"></script>
-        <script src="public/chatRoom/js/login.js"></script>
+        <script src="/public/chatRoom/js/jQuery-md5.js"></script>
+        <script src="/public/chatRoom/js/login.js"></script>
         <script type="text/javascript">
       		$(window).on("resize ready",function(){
 				var colOffset = $("#colOffset"),

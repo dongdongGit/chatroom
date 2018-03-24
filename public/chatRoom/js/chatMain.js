@@ -152,7 +152,7 @@ var Scroll = {};
 			function get(msg) {
 				if(msg == undefined) msg = '';
 				$.ajax({
-					url: "./index.php?p=chatRoom&c=Get&a=get",
+					url: window.location.href + "/chatRoom/Get/get",
 					type: "get",
 					dataType: "json",
 					data: {
@@ -190,9 +190,9 @@ var Scroll = {};
 					cont.append('<div class="media"><div class="media-body"><div class="media-heading text-right"><span class="h4">' +
 						msgArray.msg[i]['username'] + '</span><span class="time">' +
 						msgArray.msg[i]['pubTime'] + '</span></div><div class="bubble rightPush pull-right"><div class="bubbleStyle bubble-right"></div><p class="label label-success send-right">' +
-						msgArray.msg[i]['content'] + '</p></div></div><div class="media-right"><a href="#"><img class="media-object" src="public/chatRoom/img/head03.gif"></a></div></div>');
+						msgArray.msg[i]['content'] + '</p></div></div><div class="media-right"><a href="#"><img class="media-object" src="/public/chatRoom/img/head03.gif"></a></div></div>');
 				} else {
-					cont.append('<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="public/chatRoom/img/head01.jpg" alt="..."></a></div><div class="media-body"><div class="media-heading"><span class="h4">' +
+					cont.append('<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="/public/chatRoom/img/head01.jpg" alt="..."></a></div><div class="media-body"><div class="media-heading"><span class="h4">' +
 						msgArray.msg[i]['username'] + '</span><span class="time">' +
 						msgArray.msg[i]['pubTime'] + '</span></div><div class="bubble leftPush"><div class="bubbleStyle bubble-left"></div><p class="label label-success send-left">' +
 						msgArray.msg[i]['content'] + '</p></div></div></div>');
@@ -204,9 +204,9 @@ var Scroll = {};
 					cont.append('<div class="media"><div class="media-body"><div class="media-heading text-right"><span class="h4">' +
 						msgArray.msg['username'] + '</span><span class="time">' +
 						msgArray.msg['pubTime'] + '</span></div><div class="bubble rightPush pull-right"><div class="bubbleStyle bubble-right"></div><p class="label label-success send-right">' +
-						msgArray.msg['content'] + '</p></div></div><div class="media-right"><a href="#"><img class="media-object" src="public/chatRoom/img/head03.gif"></a></div></div>');
+						msgArray.msg['content'] + '</p></div></div><div class="media-right"><a href="#"><img class="media-object" src="/public/chatRoom/img/head03.gif"></a></div></div>');
 				} else {
-					cont.append('<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="public/chatRoom/img/head01.jpg" alt="..."></a></div><div class="media-body"><div class="media-heading"><span class="h4">' +
+					cont.append('<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="/public/chatRoom/img/head01.jpg" alt="..."></a></div><div class="media-body"><div class="media-heading"><span class="h4">' +
 						msgArray.msg['username'] + '</span><span class="time">' +
 						msgArray.msg['pubTime'] + '</span></div><div class="bubble leftPush"><div class="bubbleStyle bubble-left"></div><p class="label label-success send-left">' +
 						msgArray.msg['content'] + '</p></div></div></div>');
@@ -214,14 +214,14 @@ var Scroll = {};
 			}
 
 			function addMsg(msgArray, i) {
-				cont.append('<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="public/chatRoom/img/head01.jpg" alt="..."></a></div><div class="media-body"><div class="media-heading"><span class="h4">' +
+				cont.append('<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="/public/chatRoom/img/head01.jpg" alt="..."></a></div><div class="media-body"><div class="media-heading"><span class="h4">' +
 					msgArray.msg[i]['username'] + '</span><span class="time">' +
 					msgArray.msg[i]['pubTime'] + '</span></div><div class="bubble leftPush"><div class="bubbleStyle bubble-left"></div><p class="label label-success send-left">' +
 					msgArray.msg[i]['content'] + '</p></div></div></div>');
 			}
 
 			function addOneMsg(msgArray) {
-				cont.append('<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="public/chatRoom/img/head01.jpg" alt="..."></a></div><div class="media-body"><div class="media-heading"><span class="h4">' +
+				cont.append('<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="/public/chatRoom/img/head01.jpg" alt="..."></a></div><div class="media-body"><div class="media-heading"><span class="h4">' +
 					msgArray.msg['username'] + '</span><span class="time">' +
 					msgArray.msg['pubTime'] + '</span></div><div class="bubble leftPush"><div class="bubbleStyle bubble-left"></div><p class="label label-success send-left">' +
 					msgArray.msg['content'] + '</p></div></div></div>');
@@ -377,7 +377,7 @@ var Scroll = {};
 				if(flag) return;
 				flag = true;
 				$.ajax({
-					url: "./index.php?p=chatRoom&c=Send&a=send",
+					url: window.location.href + "/chatRoom/Send/send",
 					type: "post",
 					dataType: "json",
 					timeout: 8000,
@@ -399,7 +399,7 @@ var Scroll = {};
 						}
 					},
 					error: function() {
-						console.log("与php连接失败");
+						console.log("服务器错误");
 					}
 				});
 				return self;
@@ -429,7 +429,7 @@ var Scroll = {};
 				newLast.append('<div class="media"><div class="media-body"><div class="media-heading text-right"><span class="h4">' +
 					msgArray['username'] + '</span><span class="time">' +
 					msgArray['pubTime'] + '</span></div><div class="bubble rightPush pull-right"><div class="bubbleStyle bubble-right"></div><p class="label label-success send-right">' +
-					msgArray['content'] + '</p></div></div><div class="media-right"><a href="#"><img class="media-object" src="public/chatRoom/img/head03.gif"></a></div></div>');
+					msgArray['content'] + '</p></div></div><div class="media-right"><a href="#"><img class="media-object" src="/public/chatRoom/img/head03.gif"></a></div></div>');
 			}
 			return self;
 		},

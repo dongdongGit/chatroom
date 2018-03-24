@@ -5,7 +5,7 @@ return [
         'HOST'    => '127.0.0.1',
         'USER'    => 'root',
         'PWD'     => '',
-        'NAME'    => 'userdb',
+        'NAME'    => 'chatroom',
         'TYPE'    => 'mysql',
         'PORT'    => '3306',
         'CHARSET' => 'utf8'

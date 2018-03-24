@@ -95,10 +95,10 @@ class Framework
         $default_platform = $GLOBALS['config']['app']['DEFAULT_PLATFORM'];
         define('PLATFORM', isset($_GET['p']) ? $_GET['p'] : $default_platform);
         // 控制器类
-        $default_controller = $GLOBALS['config'][PLATFORM]['DEFAULT_CONTROLLER']; // 当前平台的默认控制器
+        @$default_controller = $GLOBALS['config'][PLATFORM]['DEFAULT_CONTROLLER']; // 当前平台的默认控制器
         define('CONTROLLER', isset($_GET['c']) ? $_GET['c'] : $default_controller);
         // 动作
-        $default_action = $GLOBALS['config'][PLATFORM]['DEFAULT_ACTION'];
+        @$default_action = $GLOBALS['config'][PLATFORM]['DEFAULT_ACTION'];
         define('ACTION', isset($_GET['a']) ? $_GET['a'] : $default_action);
     }
 

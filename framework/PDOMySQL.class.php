@@ -201,6 +201,7 @@ class PDOMySQL
      */
     public static function update($data, $table, $where = null, $order = null, $limit = 0)
     {
+        $sets = '';
         // 把$data的键赋给$key,把$data的值赋给$val
         foreach ($data as $key => $val) {
             $sets .= $key . "='" . $val . "',";

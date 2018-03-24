@@ -34,7 +34,7 @@ $(function() {
 					},
 					remote: {
 						message: '用户名已存在',
-						url: "./index.php?p=chatRoom&c=register&a=lgnExists",
+						url: window.location.host + "/chatRoom/Register/lgnExists",
 						delay: 1000,
 						type: 'POST',
 					}
@@ -58,7 +58,7 @@ $(function() {
 					threshold: 2,
 					remote: {
 						message: '昵称已存在',
-						url: "./index.php?p=chatRoom&c=register&a=nameExists",
+						url: window.location.host + "/chatRoom/Register/nameExists",
 						delay: 1000,
 						type: 'POST',
 					}
@@ -150,7 +150,7 @@ $(function() {
 					threshold: 11,
 					remote: {
 						message: '该手机号码已注册(同城**找铿哥联系方式：18367746208)',
-						url: "./index.php?p=chatRoom&c=register&a=moblieExists",
+						url: window.location.host + "/chatRoom/Register/moblieExists",
 						delay: 1000,
 						type: 'POST',
 					}
@@ -168,7 +168,7 @@ $(function() {
 		var bv = $form.data('bootstrapValidator');
 		var formData = $form.serialize();
 		$.ajax({
-			url: "./index.php?p=chatRoom&c=Register&a=register",
+			url: window.location.host + "/chatRoom/Register/egister",
 			type: "post",
 			dataType: "json",
 			timeout: 30000,
