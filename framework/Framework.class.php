@@ -92,7 +92,7 @@ class Framework
     {
         // 确定分发参数
         // 平台
-        $default_platform = $GLOBALS['config']['app']['DEFAULT_PLATFORM'];
+        @$default_platform = $GLOBALS['config']['app']['DEFAULT_PLATFORM'];
         define('PLATFORM', isset($_GET['p']) ? $_GET['p'] : $default_platform);
         // 控制器类
         @$default_controller = $GLOBALS['config'][PLATFORM]['DEFAULT_CONTROLLER']; // 当前平台的默认控制器
@@ -100,6 +100,11 @@ class Framework
         // 动作
         @$default_action = $GLOBALS['config'][PLATFORM]['DEFAULT_ACTION'];
         define('ACTION', isset($_GET['a']) ? $_GET['a'] : $default_action);
+        var_dump($_SERVER['REQUEST_URI']);
+        echo '<br/>';
+        var_dump($_SERVER['QUERY_STRING']);
+        var_dump($_GET);
+        die();
     }
 
     /**

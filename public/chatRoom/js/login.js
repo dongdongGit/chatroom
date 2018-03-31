@@ -1,5 +1,6 @@
 $(function() {
-	var loginForm = $("#loginForm"),
+	var origin = window.location.origin,
+		loginForm = $("#loginForm"),
 		password = $("#passwordTxt"),
 		captcha = $("#captcha"),
 		captchaBtn = $("#captchaBtn"),
@@ -7,10 +8,11 @@ $(function() {
 	captcha.one("focus", function() {
 		captchaImg.fadeIn();
 	});
-
+	console.log(origin);
 	$("#captchaBtn,.captchaImage").on("click", function(e) {
 		e.preventDefault();
-		captchaImg.attr("src", window.location.host + "/chatroom/login/captcha");
+		console.log(origin);
+		captchaImg.attr("src", origin + "/chatRoom/Login/Captcha");
 	});
 	// boostrapValidator 验证表单
 	loginForm.bootstrapValidator({
@@ -82,7 +84,7 @@ $(function() {
 					threshold: 4,
 					remote: {
 						message: '验证码错误',
-						url: window.location.host + "/chatRoom/login/captchaExists",
+						url: origin + "/chatRoom/login/captchaExists",
 						delay: 1000,
 						type: 'POST',
 					}
@@ -99,8 +101,9 @@ $(function() {
 		// Get the BootstrapValidator instance
 		var bv = $form.data('bootstrapValidator');
 		var formData = $form.serialize();
+		
 		$.ajax({
-			url: window.location.host + "/chatRoom/Login/login",
+			url: origin + "/chatRoom/Login/login",
 			type: "post",
 			dataType: "json",
 			timeout: 10000,
@@ -110,12 +113,12 @@ $(function() {
 					case '0':
 						alert(result.errors);
 						$form.bootstrapValidator('resetForm', true);
-						captchaImg.attr("src", window.location.host + "/chatroom/login/captcha");
+						captchaImg.attr("src", origin + "/chatroom/login/captcha");
 						break;
 					case '1':
 						alert(result.msg);
 						$form.bootstrapValidator('resetForm', true);
-						captchaImg.attr("src", window.location.host + "/chatroom/login/captcha");
+						captchaImg.attr("src", origin + "/chatroom/login/captcha");
 						break;
 					case '2':
 						alert(result.msg);

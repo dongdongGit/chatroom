@@ -28,8 +28,8 @@ class GetController extends CommentController
             $this->lastResultMsg = $this->commentModelPDO->byPubTimeDESC();
             $this->lastResultMsg = $this->dataFormat($this->lastResultMsg, $this->uid);
             $resultArr = [
-                    'status' => '2',
-                    'msg'    => $this->lastResultMsg
+                'status' => '2',
+                'msg'    => $this->lastResultMsg
             ];
             echo json_encode($resultArr);
         } elseif (isset($this->userArray['msg'])) {
@@ -40,8 +40,8 @@ class GetController extends CommentController
             if ($this->resultMsg) {
                 $this->resultMsg = $this->dataFormat($this->resultMsg, $this->uid);
                 $resultArr = [
-                        'status' => '1',
-                        'msg'    => $this->resultMsg
+                    'status' => '1',
+                    'msg'    => $this->resultMsg
                 ];
                 echo json_encode($resultArr);
             }
@@ -56,16 +56,14 @@ class GetController extends CommentController
      */
     public function dataFormat($data, $uid)
     {
-        if (empty($data)) {
+        // 是否为空, 是否为数组
+        if (empty($data) || !is_array($data)) {
             return false;
-        } // 是否为空，为空返回false
-        if (!is_array($data)) {
-            return false;
-        } //是否为数组, 不是返回false
+        }
+
         if (count($data) != count($data, 1)) { //判断是否为一维数组即判断聊天内容是否只有一条，不是一维则进行多维数组的数据处理
             for ($i = 0; $i < count($data); $i++) {
                 //获取第i项数组里的所有key值，以数组返回结果
-// 				$key = array_keys($data[$i]);
                 if ($data[$i]['uid'] === $uid) { //判断uid是否当前请求用户的uid，是则添加标志$date[$i]['flag'] = 1
                     $data[$i]['flag'] = 1;
                 }
