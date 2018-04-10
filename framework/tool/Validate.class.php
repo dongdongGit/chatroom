@@ -116,8 +116,6 @@ class Validate
      */
     public static function validateActive(&$arr)
     {
-        var_dump($_GET);
-        die();
         if (!(@$data['token'] = filter_var($_GET['token'], FILTER_CALLBACK, [
             'options' => 'Validate::validateToken'
         ]))) {

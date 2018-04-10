@@ -100,11 +100,6 @@ class Framework
         // 动作
         @$default_action = $GLOBALS['config'][PLATFORM]['DEFAULT_ACTION'];
         define('ACTION', isset($_GET['a']) ? $_GET['a'] : $default_action);
-        var_dump($_SERVER['REQUEST_URI']);
-        echo '<br/>';
-        var_dump($_SERVER['QUERY_STRING']);
-        var_dump($_GET);
-        die();
     }
 
     /**

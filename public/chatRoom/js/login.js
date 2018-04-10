@@ -127,8 +127,9 @@ $(function() {
 				}
 			},
 			error: function(result) {
-				alert('发送失败!');
-				alert(result.msg);
+				// alert('发送失败!');
+				// alert(result.msg);
+				console.log(result);
 			}
 		});
 	});
