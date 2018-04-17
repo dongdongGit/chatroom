@@ -12,7 +12,7 @@ class RegisterController extends UserController
     {
         if ($this->result) {
             $user_loginName = $this->userArray['user_loginName'];
-            $username = $this->userArray['username'];
+            $username = json_encode($this->userArray['username']);
             $password = md5($this->userArray['password'] . KEY);
             $rePasswd = md5($this->userArray['rePasswd'] . KEY);
             $email = $this->userArray['email'];
@@ -45,15 +45,17 @@ class RegisterController extends UserController
     {
         require_once TOOL_PATH . 'swiftmailer-master/lib/swift_required.php';
         $transport = Swift_SmtpTransport::newInstance('smtp.qq.com', 465, 'ssl');
-        $transport->setUsername('1697919363@qq.com')->setPassword('ctrleqihyyftdfhb');
+        $transport->setUsername('1697919363@qq.com')->setPassword('pfynhdwtnrbscahb');
         $mailer = Swift_Mailer::newInstance($transport);
         $message = Swift_Message::newInstance();
+
         $message->setFrom([
             '1697919363@qq.com' => 'Admin'
         ])->setTo([
             $this->data['email'] => 'User'
         ])->setSubject('骚表哥聊天室账号激活邮件');
-        $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?p=chatRoom&c=Active&a=active&token={$this->data['token']}";
+
+        $url = 'http://' . $_SERVER['HTTP_HOST'] . "/chatRoom/Active/active?token={$this->data['token']}";
         // $urlencode = urlencode($url);
         $printStr = <<<EOF
 				垃圾的{$this->data['user_loginName']}您好~！感谢您注册我们聊天室，您的昵称是{$this->data['username']}<br/>
@@ -63,16 +65,17 @@ class RegisterController extends UserController
 EOF;
         $message->setBody("{$printStr}", 'text/html', 'utf-8');
         $mailer->protocol = 'stmp';
+
         try {
             if ($mailer->send($message)) {
                 $resultReg = [
-                    'status' => '1', 'msg' => '注册成功(宇宙找铿哥联系方式：18367746208)', 'url' => './index.php?p=chatRoom&c=View&sLogin'
+                    'status' => '1', 'msg' => '注册成功', 'url' => '/chatRoom/View/sLogin'
                 ];
                 echo json_encode($resultReg);
             } else {
                 $this->userModelPDO->deleteUser($this->lastInsertId);
                 $resultReg = [
-                    'status' => '2', 'msg' => '注册失败，邮件发送失败(宇宙找铿哥联系方式：18367746208)'
+                    'status' => '2', 'msg' => '注册失败，邮件发送失败'
                 ];
                 echo json_encode($resultReg);
             }

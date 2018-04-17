@@ -57,7 +57,7 @@ class Validate
         ]))) {
             $errors['rePasswd'] = '请输入合法密码';
         } else {
-            if ((strcmp($data['password'], $data['rePasswd']) != 0) || ($data['password'] == $data['userLgnName'])) {
+            if ((strcmp($data['password'], $data['rePasswd']) != 0) || ($data['password'] == @$data['userLgnName'])) {
                 $errors['rePasswd'] = '两次密码不一致或者密码不能与用户名相同';
             }
         }
@@ -116,7 +116,7 @@ class Validate
      */
     public static function validateActive(&$arr)
     {
-        if (!($data['token'] = filter_var($_GET['token'], FILTER_CALLBACK, [
+        if (!(@$data['token'] = filter_var($_GET['token'], FILTER_CALLBACK, [
             'options' => 'Validate::validateToken'
         ]))) {
             $errors['token'] = '请输入正确激活码';

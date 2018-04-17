@@ -61,7 +61,7 @@ class SessionDB
         $result = $this->_dao->find('session', 'session_content', "session_id='{$session_id}'");
         // print_r($result);
         // echo '<br/>';
-        return (string)$result;
+        return (string) $result;
     }
 
     /**

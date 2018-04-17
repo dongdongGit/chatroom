@@ -13,7 +13,7 @@ class ViewController extends UserController
         // var_dump($_SESSION);
         // session_write_close();
         if (isset($_SESSION['uid'])) {
-            $this->_jump('index.php?p=chatRoom&c=View&a=sChatMain');
+            $this->_jump('/chatRoom/View/sChatMain');
         }
         require_once CURRENT_VIEW_PATH . 'login.html';
     }
@@ -28,9 +28,11 @@ class ViewController extends UserController
         // var_dump($test);
         // new SessionDB();
         // session_write_close();
-        // var_dump($_SESSION);
-        if (!isset($_SESSION['uid']) && $_SESSION['isLogin'] !== 'ok') {
-            $this->_jump('index.php?p=chatRoom&c=View&a=sLogin', '请先登录', 5);
+        if (!isset($_SESSION['isLogin'])) {
+            $this->_jump('/chatRoom/View/sLogin', '请先登录', 5);
+        }
+        if (!isset($_SESSION['uid']) && $_SESSION['isLogin'] != 'ok') {
+            $this->_jump('/chatRoom/View/sLogin', '请先登录', 5);   
         }
         require_once CURRENT_VIEW_PATH . 'chatMain.html';
     }
@@ -45,7 +47,7 @@ class ViewController extends UserController
         // new SessionDB();
         // session_write_close();
         if (isset($_SESSION['uid'])) {
-            $this->_jump('index.php?p=chatRoom&c=View&a=sChatMain', '请先退出', 5);
+            $this->_jump('/chatRoom/View/sChatMain', '请先退出', 5);
         }
         require_once CURRENT_VIEW_PATH . 'register.html';
     }

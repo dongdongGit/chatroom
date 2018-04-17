@@ -2,6 +2,7 @@ $(function() {
 	var passwd = $("#passwd");
 	var rePasswd = $("#rePasswd");
 	var regForm = $("#regForm");
+	var origin = window.location.origin;
 	// boostrapValidator 验证表单
 	regForm.bootstrapValidator({
 		message: '信息错误',
@@ -34,7 +35,7 @@ $(function() {
 					},
 					remote: {
 						message: '用户名已存在',
-						url: "./index.php?p=chatRoom&c=register&a=lgnExists",
+						url: origin + "/chatRoom/Register/lgnExists",
 						delay: 1000,
 						type: 'POST',
 					}
@@ -58,7 +59,7 @@ $(function() {
 					threshold: 2,
 					remote: {
 						message: '昵称已存在',
-						url: "./index.php?p=chatRoom&c=register&a=nameExists",
+						url: origin + "/chatRoom/Register/nameExists",
 						delay: 1000,
 						type: 'POST',
 					}
@@ -149,8 +150,8 @@ $(function() {
 					},
 					threshold: 11,
 					remote: {
-						message: '该手机号码已注册(同城**找铿哥联系方式：18367746208)',
-						url: "./index.php?p=chatRoom&c=register&a=moblieExists",
+						message: '该手机号码已注册',
+						url: origin + "/chatRoom/Register/moblieExists",
 						delay: 1000,
 						type: 'POST',
 					}
@@ -168,7 +169,7 @@ $(function() {
 		var bv = $form.data('bootstrapValidator');
 		var formData = $form.serialize();
 		$.ajax({
-			url: "./index.php?p=chatRoom&c=Register&a=register",
+			url: origin + "/chatRoom/Register/register",
 			type: "post",
 			dataType: "json",
 			timeout: 30000,

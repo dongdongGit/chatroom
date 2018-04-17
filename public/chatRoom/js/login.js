@@ -1,5 +1,6 @@
 $(function() {
-	var loginForm = $("#loginForm"),
+	var origin = window.location.origin,
+		loginForm = $("#loginForm"),
 		password = $("#passwordTxt"),
 		captcha = $("#captcha"),
 		captchaBtn = $("#captchaBtn"),
@@ -7,10 +8,11 @@ $(function() {
 	captcha.one("focus", function() {
 		captchaImg.fadeIn();
 	});
-
+	console.log(origin);
 	$("#captchaBtn,.captchaImage").on("click", function(e) {
 		e.preventDefault();
-		captchaImg.attr("src", "./index.php?p=chatroom&c=login&a=captcha");
+		console.log(origin);
+		captchaImg.attr("src", origin + "/chatRoom/Login/Captcha");
 	});
 	// boostrapValidator 验证表单
 	loginForm.bootstrapValidator({
@@ -82,7 +84,7 @@ $(function() {
 					threshold: 4,
 					remote: {
 						message: '验证码错误',
-						url: "./index.php?p=chatRoom&c=login&a=captchaExists",
+						url: origin + "/chatRoom/login/captchaExists",
 						delay: 1000,
 						type: 'POST',
 					}
@@ -99,8 +101,9 @@ $(function() {
 		// Get the BootstrapValidator instance
 		var bv = $form.data('bootstrapValidator');
 		var formData = $form.serialize();
+		
 		$.ajax({
-			url: "./index.php?p=chatRoom&c=Login&a=login",
+			url: origin + "/chatRoom/Login/login",
 			type: "post",
 			dataType: "json",
 			timeout: 10000,
@@ -110,12 +113,12 @@ $(function() {
 					case '0':
 						alert(result.errors);
 						$form.bootstrapValidator('resetForm', true);
-						captchaImg.attr("src", "./index.php?p=chatroom&c=login&a=captcha");
+						captchaImg.attr("src", origin + "/chatroom/login/captcha");
 						break;
 					case '1':
 						alert(result.msg);
 						$form.bootstrapValidator('resetForm', true);
-						captchaImg.attr("src", "./index.php?p=chatroom&c=login&a=captcha");
+						captchaImg.attr("src", origin + "/chatroom/login/captcha");
 						break;
 					case '2':
 						alert(result.msg);
@@ -124,8 +127,9 @@ $(function() {
 				}
 			},
 			error: function(result) {
-				alert('发送失败!');
-				alert(result.msg);
+				// alert('发送失败!');
+				// alert(result.msg);
+				console.log(result);
 			}
 		});
 	});

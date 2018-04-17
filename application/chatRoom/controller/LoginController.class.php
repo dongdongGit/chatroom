@@ -9,12 +9,12 @@ class LoginController extends UserController
      */
     public function loginAction()
     {
-        // if (!isset($_SESSION)) {
-        // session_start();
-        // }
         if (!isset($_SESSION)) {
-            new SessionDB();
+            session_start();
         }
+        // if (!isset($_SESSION)) {
+        //     new SessionDB();
+        // }
         // 验证表单数据是否合法
         if ($this->result) {
             // 获取登录表单信息
@@ -47,7 +47,7 @@ class LoginController extends UserController
                         'status' => '1',
                         'msg'    => '账号未激活，请去注册时填写的邮箱激活()'
                     ];
-                    echo json_encode($result);
+                    return json_encode($result);
                 } else {
                     // if($_POST['rememberPassword'] == 1) {
                     // setcookie("user_loginName", filter_input(INPUT_POST, 'userLgnName'), time() + 24 * 3600 * 7, '/', '', false, true);
@@ -61,13 +61,15 @@ class LoginController extends UserController
                     $result = [
                         'status' => '2',
                         'msg'    => '登录成功马上跳转()',
-                        'url'    => 'index.php?p=chatRoom&c=View&a=sChatMain'
+                        'url'    => '/chatRoom/View/sChatMain'
                     ];
-                    echo json_encode($result);
+                    var_dump(1);
+                    die();
+                    return json_encode($result);
                 }
             }
         } else {
-            echo '{"status":"0","errors":' . json_encode($this->userArray) . '}';
+            return '{"status":"0","errors":' . json_encode($this->userArray) . '}';
         }
         $this->userModelPDO->close();
     }
