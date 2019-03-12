@@ -27,12 +27,11 @@ var Scroll = {};
             return self;
         },
 
-		/**
-		 * 初始化DOM引用
-		 * @method _initDomEvent
-		 * @return {CusScrollBar}
-		 */
-
+	/**
+	 * 初始化DOM引用
+	 * @method _initDomEvent
+	 * @return {CusScrollBar}
+	 */
         _initDomEvent: function () {
             var options = this.options;
             this.$size = $(options.sizeSelector);
@@ -56,10 +55,10 @@ var Scroll = {};
                 ._bindBtnUp()
                 ._bindBtnDown();
         },
-		/**
-		 * 初始化点击滚动条滚动$cont的高度 
-		 * @return {Object} [this]
-		 */
+	/**
+	 * 初始化点击滚动条滚动$cont的高度 
+	 * @return {Object} [this]
+	 */
         _initScrollBarDragEvent: function () {
             var self = this,
                 bar = self.$bar,
@@ -108,12 +107,11 @@ var Scroll = {};
             }
             return self;
         },
-		/**
-		 * 初始化滑块拖动功能
-		 * @return {[Object]}[this]
-		 * 
-		 */
-
+	/**
+	 * 初始化滑块拖动功能
+	 * @return {[Object]}[this]
+	 * 
+	 */
         _initSliderDragEvent: function () {
             var self = this,
                 slider = self.$slider,
@@ -229,9 +227,9 @@ var Scroll = {};
             return self;
         },
 
-		/**
-		 * 绑定文本框高度变化
-		 */
+	/**
+	 * 绑定文本框高度变化
+	 */
         _bindTxtHeightEvent: function () {
             var self = this,
                 txt = self.$txt,
@@ -252,10 +250,10 @@ var Scroll = {};
             }
             return self;
         },
-		/**
-		 * 绑定内容滚动高度
-		 * @return {[Object]}[this]
-		 */
+	/**
+	 * 绑定内容滚动高度
+	 * @return {[Object]}[this]
+	 */
         _bindContScroll: function () {
             var self = this;
             self.$cont.on("scroll", function () {
@@ -267,27 +265,27 @@ var Scroll = {};
             });
             return self;
         },
-		/**
-		 * 绑定滚轮滚动，来使内容以及滑块滚动
-		 * @return {[Object]}[this]
-		 */
+	/**
+	 * 绑定滚轮滚动，来使内容以及滑块滚动
+	 * @return {[Object]}[this]
+	 */
         _bindMousewheel: function () {
             var self = this;
-            //parent()是为了让鼠标悬停在滚动条上也能触发鼠标滚轮事件  因为html结构的
+            // parent()是为了让鼠标悬停在滚动条上也能触发鼠标滚轮事件  因为html结构的
             self.$cont.parent().on("mousewheel DOMMouseScroll", function (e) {
                 e.preventDefault();
                 var oEvent = e.originalEvent, //指向原生事件
-                    //判断原生事件中有没有wheelDelta属性，有就赋值，没有就赋值oEvent.detail属性
+                    // 判断原生事件中有没有wheelDelta属性，有就赋值，没有就赋值oEvent.detail属性
                     wheelRange = oEvent.wheelDelta ? -oEvent.wheelDelta / 120 : (oEvent.detail || 0) / 3;
-                //				self.scrollTo(self.$cont.scrollTop() + wheelRange * self.getMaxScrollPosition().toFixed(2) * 0.1);
+                // self.scrollTo(self.$cont.scrollTop() + wheelRange * self.getMaxScrollPosition().toFixed(2) * 0.1);
                 self.scrollMode('', wheelRange * 0.1);
             });
             return self;
         },
-		/**
-		 * 绑定向上按钮事件
-		 * @return {[Object]}[this]
-		 */
+	/**
+	 * 绑定向上按钮事件
+	 * @return {[Object]}[this]
+	 */
         _bindBtnUp: function () {
             var self = this,
                 up = self.$up,
@@ -311,10 +309,10 @@ var Scroll = {};
             }
             return self;
         },
-		/**
-		 * 绑定向下按钮事件
-		 * @return {[Object]}[this]
-		 */
+	/**
+	 * 绑定向下按钮事件
+	 * @return {[Object]}[this]
+	 */
         _bindBtnDown: function () {
             var self = this,
                 down = self.$down,
@@ -371,9 +369,9 @@ var Scroll = {};
                         return;
                     }
                 }
-                //				else if (){
-                //					
-                //				}
+                // else if (){
+                //			
+                // }
                 if (flag) return;
                 flag = true;
                 $.ajax({
